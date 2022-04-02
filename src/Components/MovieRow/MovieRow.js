@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 export default function MovieRow({ title, items }) {
-  console.log(items);
   return (
     <div className="movieRow">
       <h2>{title}</h2>

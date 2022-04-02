@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Utils from "../Utils/listMovieAPI";
 import MovieRow from "../Components/MovieRow/MovieRow";
 import FeaturedMovie from "../Components/FeaturedMovie/FeaturedMovie";
+import Header from "../Components/Header/Header";
 
 export default function HomePage() {
   const [moveiList, setMovieList] = useState([]);
@@ -17,12 +18,15 @@ export default function HomePage() {
         Math.random() * (originals[0].items.results.length - 1)
       );
       let chosen = originals[0].items.results[randomMovie];
-      console.log(chosen);
+      let choseInfo = await Utils.getMoviedetails(chosen.id, "tv");
+
+      setFeaturedData(choseInfo);
     };
     loadAll();
   }, []);
   return (
     <div className="page">
+      <Header/>
       {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="lists">
         {moveiList.map((movie, id) => {
