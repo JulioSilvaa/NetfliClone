@@ -28,10 +28,10 @@ export default function HomePage() {
 
   useEffect(() => {
     const scrollListener = () => {
-      if(window.scrollY > 10){
-        setBlackHeader(true)
-      }else{
-        setBlackHeader(false)
+      if (window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
       }
     };
     window.addEventListener("scroll", scrollListener);
@@ -49,6 +49,11 @@ export default function HomePage() {
           return <MovieRow title={movie.title} items={movie.items} key={id} />;
         })}
       </section>
+      <footer>
+        Feito por Julio Silva Direitos de imagem para Netflix
+        <br />
+        Dados fornecidos por The Movie Data Base.
+      </footer>
     </div>
   );
 }
