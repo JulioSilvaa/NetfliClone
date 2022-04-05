@@ -86,3 +86,31 @@
     font-style: 18px;
     color: #999;
 }
+
+@media(max-width:760px) {
+    .featured {
+        height: 90vh;
+    }
+
+    .featured--name {
+        font-size: 40px;
+    }
+
+    .featured--info {
+        font-style: 16px;
+    }
+
+    .featured--description {
+        font-style: 14px;
+        min-width: 100%;
+        margin-right: 30px;
+    }
+
+    .featured--watchbutton, .featured--mylistbutton {
+        font-style: 16px;
+    }
+
+    .featured--genres {
+        font-style: 14px;
+    }
+}

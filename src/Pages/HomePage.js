@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import loading from "../assets/Netflix_LoadTime.gif";
 import Utils from "../Utils/listMovieAPI";
 import MovieRow from "../Components/MovieRow/MovieRow";
 import FeaturedMovie from "../Components/FeaturedMovie/FeaturedMovie";
@@ -54,6 +55,11 @@ export default function HomePage() {
         <br />
         Dados fornecidos por The Movie Data Base.
       </footer>
+      {moveiList.length <= 0 && (
+        <div className="loading">
+          <img src={loading} alt="Loading" />
+        </div>
+      )}
     </div>
   );
 }
