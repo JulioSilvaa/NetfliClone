@@ -7,6 +7,7 @@ import Header from "../Components/Header/Header";
 export default function HomePage() {
   const [moveiList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -24,15 +25,35 @@ export default function HomePage() {
     };
     loadAll();
   }, []);
+
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    };
+    window.addEventListener("scroll", scrollListener);
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
   return (
     <div className="page">
-      <Header/>
+      <Header black={blackHeader} />
       {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="lists">
         {moveiList.map((movie, id) => {
           return <MovieRow title={movie.title} items={movie.items} key={id} />;
         })}
       </section>
+      <footer>
+        Feito por Julio Silva Direitos de imagem para Netflix
+        <br />
+        Dados fornecidos por The Movie Data Base.
+      </footer>
     </div>
   );
 }
