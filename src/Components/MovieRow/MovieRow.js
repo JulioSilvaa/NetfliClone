@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 
 export default function MovieRow({ title, items }) {
-  const [scrollList, setScrollList] = useState(-400);
+  const [scrollList, setScrollList] = useState(0);
 
   const handleleftArrow = () => {
     let x = scrollList + Math.round(window.innerWidth / 2);
